@@ -12,6 +12,6 @@ after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
 - export IMAGE_NAME=diegolopmon/simple-vulnerable-webapp
-- docker build -t $IMAGE_NAME:$COMMIT .
-- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-- docker push $IMAGE_NAME
+- docker build -t diegolopmon/simple-vulnerable-webapp .
+- docker tag diegolopmon/simple-vulnerable-webapp simple-vulnerable-webapp:$TAG
+- docker push simple-vulnerable-webapp:$TAG
