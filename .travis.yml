@@ -13,6 +13,5 @@ after_success:
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
 - export IMAGE_NAME=diegolopmon/simple-vulnerable-webapp
 - docker build -t diegolopmon/simple-vulnerable-webapp .
-- docker tag diegolopmon/simple-vulnerable-webapp simple-vulnerable-webapp:$TAG
-- docker images
-- docker push simple-vulnerable-webapp:$TAG
+- docker tag diegolopmon/simple-vulnerable-webapp diegolopmon/simple-vulnerable-webapp:$TAG
+- docker push diegolopmon/simple-vulnerable-webapp:$TAG
