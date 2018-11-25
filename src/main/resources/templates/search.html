@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+
+<h2>User list</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${userList.empty}">
+        <td colspan="2"> No Users Available </td>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <td><span th:text="${user.firstName}"> First Name</span></td>
+        <td><span th:text="${user.lastName}"> Last Name</span></td>
+    </tr>
+    </tbody>
+</table>
+<br><br>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.go(-1);
+    }
+</script>
+
+</body>
+</html>
